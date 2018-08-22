@@ -1,0 +1,129 @@
+
+<section class="hero is-medium is-info is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title is-1">
+        BOT Management
+      </h1>
+      <h1 class="title is-4 is-info help">{{status}}</h1>
+
+      <h2 class="title" >
+        Your address
+        <span  class="is-medium has-underline">{{account}}</span>
+      </h2>
+    </div>
+  </div>
+</section>
+<br>
+
+<button (click)="getBotList()" class="button is-primary">
+  Get List Bot
+</button>
+
+<button (click)="getAccountList()" class="button is-primary">
+  Get Account List
+</button>
+
+
+<div class="container">
+  <h1 class="title">Danh sách trạm BOT</h1>
+</div>
+<br>
+<hr>
+<div class="container">
+  <h1 class="title">Danh sách tài khoản</h1>
+</div>
+
+<br>
+<hr>
+<div class="container">
+  <h1 class="title">Thêm quyền</h1>
+  <div class="field">
+    <label class="label">Account address</label>
+    <p class="control">
+      <input [(ngModel)]="acc_addr" class="input" type="text" placeholder="Nhập địa chỉ cần thêm quyền" >
+    </p>
+  </div>
+  <div class="field">
+    <label class="label">Quyền</label>
+    <p class="control">
+        <input [(ngModel)]="permisType" class="input" type="text" placeholder="Nhập quyền" >
+    </p>
+  </div>
+
+  <button (click)="addPermission()" class="button is-primary ">
+    Set Permisstion
+  </button>
+</div>
+
+<br>
+<hr>
+<div class="container">
+  <h1 class="title">Thêm trạm BOT</h1>
+
+  <form #coinForm="ngForm">
+    <div class="field">
+      <label class="label">Address của trạm BOT</label>
+      <p class="control">
+        <input [(ngModel)]="address_bot" class="input" type="text" placeholder="0x93e66d9baea28c17d9fc393b53e3fbdd76899dae" name="address_bot">
+      </p>
+    </div>
+    <div class="field is-grouped">
+      <p class="control">
+        <button (click)="addBot()" class="button is-primary">
+          Add BOT
+        </button>
+      </p>
+    </div>
+  </form>
+</div>
+
+<br>
+<hr>
+
+<div class="container">
+  <h1 class="title">Kiểm tra thông tin tài khoản</h1>
+
+  <form #coinForm="ngForm">
+    <div class="field">
+      <label class="label">Account</label>
+      <p class="control">
+        <input [(ngModel)]="acc_addr" class="input" type="text" placeholder="0x93e66d9baea28c17d9fc393b53e3fbdd76899dae" name="acc_addr">
+      </p>
+    </div>
+
+    <div class="field is-grouped">
+      <p class="control">
+        <button (click)="checkAccount()" class="button is-primary">
+          Kiểm tra
+        </button>
+      </p>
+    </div>
+  </form>
+</div>
+<hr>
+<br>
+<div class="container">
+  <h1 class="title">Kiểm tra số dư tài khoản</h1>
+
+  <form #coinForm="ngForm">
+    <div class="field">
+      <label class="label">Account</label>
+      <p class="control">
+        <input [(ngModel)]="acc_addr" class="input" type="text" placeholder="0x93e66d9baea28c17d9fc393b53e3fbdd76899dae" name="acc_addr">
+      </p>
+    </div>
+
+    <div class="field is-grouped">
+      <p class="control">
+        <button (click)="getBalance()" class="button is-primary">
+          Get Balance
+        </button>
+      </p>
+    </div>
+  </form>
+  <br>
+  <hr>
+</div>
+
+
