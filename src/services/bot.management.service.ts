@@ -112,35 +112,6 @@ export class BotManagementService {
     }*/
 
 
-    getBotList(from) {
-        let meta;
-        var size;
-        var numbers = new Array;
-        return this.BotMgmt.deployed().then(instance => {
-            meta = instance;
-
-            let botLenght = meta.getBotLenght({
-                from: from,
-            });
-
-            return botLenght.then(data => {
-                size = data.toNumber();
-            }).then((res) => {
-                console.log(meta.botList);
-                for (var _i = 0; _i < size; _i++) {
-                    let value = meta.botList(_i, {
-                        from: from,
-                    });
-                    value.then(data => {
-                        numbers.push(data);
-                    });
-                }
-                return numbers
-            });
-        })
-        // })
-    }
-
     getBotListOb(from): Observable<Array<string>> {
         let meta;
         let size;
@@ -159,11 +130,15 @@ export class BotManagementService {
                 }).then(() => {
                     //console.log(meta.botList);
                     for (var _i = 0; _i < size; _i++) {
-                        let value = meta.botList(_i, {
+                        let value = meta.getBotInfo(_i, {
                             from: from,
                         });
                         value.then(data => {
-                            numbers.push(data);
+                            numbers.push(data[0]);
+                            numbers.push(data[1]);
+                            numbers.push(data[2]);
+                            numbers.push(data[3]);
+                            numbers.push(data[4]);
                         });
                     }
 
@@ -186,73 +161,6 @@ export class BotManagementService {
         })
     }
 
-
-    getAccountList(from): Observable<Array<any>> {
-        let meta;
-        var size;
-        var numbers = new Array;
-
-        return Observable.create(observer => {
-
-            this.BotMgmt.deployed().then(instance => {
-                meta = instance;
-
-                let botLenght = meta.getAccountLenght({
-                    from: from,
-                });
-
-                return botLenght.then(data => {
-                    size = data.toNumber();
-                }).then(() => {
-                    for (var _i = 0; _i < size; _i++) {
-                        let value = meta.getAccoutn(_i, {
-                            from: from,
-                        });
-                        value.then(data => {
-                            numbers.push(data[0]);
-                            numbers.push(data[1].toNumber());
-                        })
-                    }
-
-                    observer.next(numbers)
-                    observer.complete()
-
-                    //return numbers
-                }).catch(e => {
-                    console.log(e);
-                    observer.error(e)
-                });
-
-            }).catch(e => {
-                console.log(e);
-                //observer.error(e)
-            });
-        })
-
-    }
-
-    getBotList2(from): Observable<any> {
-        let meta;
-        let x = new Array;
-        return Observable.create(observer => {
-            this.BotMgmt.deployed().then(instance => {
-                meta = instance;
-                for (var _i = 0; _i < 4; _i++) {
-                    x[_i] = meta.getAccount(_i, {
-                        from: from,
-                    });
-                }
-                return x;
-            }).then((value) => {
-                observer.next(value)
-                observer.complete()
-            }).catch(e => {
-                console.log(e);
-                observer.error(e)
-            });
-        })
-    }
-
     getBotList(from): Array<string> {
         let meta;
         var size;
@@ -269,7 +177,7 @@ export class BotManagementService {
                 size = data.toNumber();
             }).then(() => {
                 for (var _i = 0; _i < size; _i++) {
-                    let value = meta.botList(_i, {
+                    let value = meta.getBotInfo(_i, {
                         from: from,
                     });
                     value.then(data => {
@@ -282,7 +190,7 @@ export class BotManagementService {
         // })
     }
 
-    getAccountList(from): Array<any> {
+    getAccountList(from): Observable<Array<any>> {
         let meta;
         var size;
         var numbers = new Array;

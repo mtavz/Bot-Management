@@ -24,6 +24,8 @@ export class getAccountComponent implements OnInit {
 
     account: any;
 
+    accounts: any;
+
     constructor(
         private _ngZone: NgZone,
         private web3Service: Web3Service,
@@ -37,10 +39,11 @@ export class getAccountComponent implements OnInit {
         console.log(this.account)*/
 
         // Get the initial account balance so it can be displayed.
+        // Get the initial account balance so it can be displayed.
         this.web3Service.getAccounts().subscribe(accs => {
             this.account = accs[0];
             this._ngZone.run(() =>
-                this.onReady()
+                this.getAccounts()
             );
         }, err => alert(err))
 
@@ -49,8 +52,12 @@ export class getAccountComponent implements OnInit {
     ngOnInit() {
     }
 
-    onReady() {
-        console.log(this.account);
-        this.vehicleServie.getAccountList(this.account)
+    getAccounts() {
+        this.vehicleServie.getAccountList(this.account).subscribe((data) => {
+            this.accounts = data;
+
+            console.log(data);
+        });
     }
+
 }

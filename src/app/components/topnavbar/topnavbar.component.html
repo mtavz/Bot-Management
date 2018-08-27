@@ -4,10 +4,11 @@
             <a class="minimalize-styl-2 btn btn-primary " (click)="toggleNavigation()"><i class="fa fa-bars"></i> </a>
         </div>
         <ul class="nav navbar-top-links navbar-right">
-            <li>
-                <a (click)="logout()">
+            <li id="account_adr">
+                <!--<a (click)="logout()">
                     <i class="fa fa-sign-out"></i> Log out
-                </a>
+                </a>-->
+                <a>{{account}}</a>
             </li>
         </ul>
     </nav>

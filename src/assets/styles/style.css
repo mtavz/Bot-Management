@@ -6,6 +6,8 @@
  *   version 2.6.2
  *
 */
+
+body, html{font-size:15px}
 h1,
 h2,
 h3,
@@ -70,6 +72,7 @@ h5 {
 }
 .navbar {
   border: 0;
+  height:60px
 }
 .navbar-default {
   background-color: transparent;
@@ -194,7 +197,7 @@ h5 {
   color: #8095a8;
 }
 .minimalize-styl-2 {
-  padding: 4px 12px;
+  padding: 8px 12px 4px;
   margin: 14px 5px 5px 20px;
   font-size: 14px;
   float: left;
@@ -457,7 +460,7 @@ body.fixed-sidebar.mini-navbar .navbar-default .nav_ > li > .nav-second-level li
   border-radius: 3px;
 }
 body.canvas-menu.mini-navbar .navbar-default .nav_ > li > .nav-second-level li a {
-  font-size: 13px;
+  font-size: 14px;
   border-radius: 3px;
 }
 .fixed-sidebar.mini-navbar .nav-second-level li a,
@@ -468,7 +471,7 @@ body.canvas-menu.mini-navbar .navbar-default .nav_ > li > .nav-second-level li a
 .canvas-menu.mini-navbar .nav-second-level {
   position: relative;
   padding: 0;
-  font-size: 13px;
+  font-size: 14px;
 }
 .fixed-sidebar.mini-navbar li.active .nav-second-level,
 .canvas-menu.mini-navbar li.active .nav-second-level {
@@ -476,7 +479,7 @@ body.canvas-menu.mini-navbar .navbar-default .nav_ > li > .nav-second-level li a
 }
 body.fixed-sidebar.mini-navbar .navbar-default .nav_ > li > a,
 body.canvas-menu.mini-navbar .navbar-default .nav_ > li > a {
-  font-size: 13px;
+  font-size: 14px;
 }
 body.fixed-sidebar.mini-navbar .nav-label,
 body.fixed-sidebar.mini-navbar .navbar-default .nav_ li a span,
@@ -1069,20 +1072,22 @@ button.dim:active:before {
   background-color: #d1dade;
   color: #5e5e5e;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 600;
-  padding: 3px 8px;
+  padding: 6px 14px;
   text-shadow: none;
+  border-radius: 4px 4px 0 0;
+  line-height: 2.1
 }
 .badge {
   background-color: #d1dade;
   color: #5e5e5e;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
-  padding-bottom: 4px;
-  padding-left: 6px;
-  padding-right: 6px;
+  padding-bottom: 6px;
+  padding-left: 8px;
+  padding-right: 8px;
   text-shadow: none;
 }
 .label-primary,
@@ -1234,7 +1239,7 @@ button.dim:active:before {
   box-shadow: none;
   color: #333333;
   cursor: default;
-  line-height: 13px;
+  line-height: 14px;
   margin: 3px 0 3px 5px;
   padding: 3px 20px 3px 5px;
   position: relative;
@@ -2226,7 +2231,7 @@ div.dt-button-info {
   margin: 0;
   padding: 0;
   list-style: none;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
 }
 .dd-list {
@@ -2250,7 +2255,7 @@ div.dt-button-info {
   margin: 0;
   padding: 0;
   min-height: 20px;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
 }
 .dd-handle {
@@ -2836,7 +2841,7 @@ a.forum-item-title:hover {
     font-size: 18px;
   }
   .vertical-timeline-content p {
-    font-size: 13px;
+    font-size: 14px;
   }
 }
 @media only screen and (min-width: 1170px) {
@@ -3369,7 +3374,7 @@ body.tour-open .animated {
 body {
   font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: #2f4050;
-  font-size: 13px;
+  font-size: 14px;
   color: #676a6c;
   overflow-x: hidden;
 }
@@ -5486,7 +5491,7 @@ table.shoping-cart-table tr td:last-child {
   border-bottom: 1px solid #e7eaec;
 }
 .article .social-feed-box p {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 18px;
 }
 .social-action {
@@ -6721,10 +6726,10 @@ body.landing-page {
 }
 .landing-page section p {
   color: #aeaeae;
-  font-size: 13px;
+  font-size: 14px;
 }
 .landing-page address {
-  font-size: 13px;
+  font-size: 14px;
 }
 .landing-page h1 {
   margin-top: 10px;
@@ -7043,7 +7048,7 @@ body.landing-page {
   color: #1ab394;
 }
 .landing-page li.pricing-desc {
-  font-size: 13px;
+  font-size: 14px;
   border-top: none;
   padding: 20px 16px;
 }
@@ -7516,7 +7521,7 @@ body.rtls.top-navigation .footer.fixed {
 .spin-icon {
   background: #1ab394;
   position: absolute;
-  padding: 7px 10px 7px 13px;
+  padding: 7px 10px 7px 14px;
   border-radius: 20px 0 0 20px;
   font-size: 16px;
   top: 0;

@@ -1,44 +1,61 @@
 <nav class="navbar-default navbar-static-side" role="navigation">
-    <div class="sidebar-collapse">
-        <ul class="nav_ metismenu" id="side-menu">
-            <li class="nav-header">
-                <div class="dropdown profile-element">
-                    <span>
-                        <img alt="image" class="img-circle" width="80px"
-                             src="./assets/img/avatar/{{loginInfo.avatar}}" />
-                    </span>
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                      <span class="clear">
-                          <span class="block m-t-xs">
-                          <strong class="font-bold">{{loginInfo.first_name}} {{loginInfo.last_name}}</strong>
-                      </span>
-                          <span class="text-muted text-xs block">{{loginInfo.title}}</span>
-                      </span>
-                    </a>
-                </div>
-                <div class="logo-element">
-                    SWWCC
-                </div>
-            </li>
-            <li [ngClass]="{active: activeRoute('home')}">
-                <a [routerLink]="['./home']"><i class="fa fa-dashboard"></i> <span class="nav-label">Dashboards</span></a>
-            </li>
-            <li [ngClass]="{active: activeRoute('getList')}">
-                <a [routerLink]="['./getList']"><i class="fa fa-desktop"></i> <span class="nav-label">Danh sách trạm</span></a>
-            </li>
-            <li [ngClass]="{active: activeRoute('getAccount')}">
-                <a [routerLink]="['./getAccount']"><i class="fa fa-desktop"></i> <span class="nav-label">Danh sách tài khoản</span></a>
-            </li>
-            <li [ngClass]="{active: activeRoute('addBot')}">
-                <a [routerLink]="['./addBot']"><i class="fa fa-desktop"></i> <span class="nav-label">Thêm trạm bot</span></a>
-            </li>
-            <li [ngClass]="{active: activeRoute('checkAccount')}">
-                <a [routerLink]="['./getAccount']"><i class="fa fa-desktop"></i> <span class="nav-label">Kiểm tra số dư tài khoản</span></a>
-            </li>
-            <li [ngClass]="{active: activeRoute('addPermission')}">
-                <a [routerLink]="['./addPermission']"><i class="fa fa-desktop"></i> <span class="nav-label">Thêm quyền</span></a>
-            </li>
-        </ul>
+  <div class="sidebar-collapse">
+    <ul class="nav_ metismenu" id="side-menu">
+      <li class="nav-header">
+        <div class="dropdown profile-element">
+          <span>
+            <img alt="image" class="img-circle" width="80px" src="./assets/img/avatar/{{loginInfo.avatar}}" />
+          </span>
+          <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+            <span class="clear">
+              <span class="block m-t-xs">
+                <strong class="font-bold">{{loginInfo.first_name}} {{loginInfo.last_name}}</strong>
+              </span>
+              <span class="text-muted text-xs block">{{loginInfo.title}}</span>
+            </span>
+          </a>
+        </div>
+        <div class="logo-element">
+          SWWCC
+        </div>
+      </li>
+      <li [ngClass]="{active: activeRoute('home')}">
+        <a [routerLink]="['./home']">
+          <i class="fa fa-dashboard"></i>
+          <span class="nav-label">Dashboards</span>
+        </a>
+      </li>
+      <li [ngClass]="{active: activeRoute('getList')}">
+        <a [routerLink]="['./getList']">
+          <i class="fa fa-desktop"></i>
+          <span class="nav-label">Danh sách trạm</span>
+        </a>
+      </li>
+      <li [ngClass]="{active: activeRoute('getAccount')}">
+        <a [routerLink]="['./getAccount']">
+          <i class="fa fa-desktop"></i>
+          <span class="nav-label">Danh sách tài khoản</span>
+        </a>
+      </li>
+      <!--<li [ngClass]="{active: activeRoute('checkAccount')}">
+        <a [routerLink]="['./checkAccount']">
+          <i class="fa fa-desktop"></i>
+          <span class="nav-label">Kiểm tra số dư</span>
+        </a>
+      </li>-->
+      <li [ngClass]="{active: activeRoute('addBot')}">
+        <a [routerLink]="['./addBot']">
+          <i class="fa fa-desktop"></i>
+          <span class="nav-label">Thêm trạm bot</span>
+        </a>
+      </li>
+      <li [ngClass]="{active: activeRoute('addPermission')}">
+        <a [routerLink]="['./addPermission']">
+          <i class="fa fa-desktop"></i>
+          <span class="nav-label">Thêm quyền</span>
+        </a>
+      </li>
+    </ul>
 
-    </div>
+  </div>
 </nav>

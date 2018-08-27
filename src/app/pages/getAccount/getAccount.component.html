@@ -2,28 +2,28 @@
   <div class="row">
     <h1 class="title">Danh sách tài khoản</h1>
 
-    <table class="list-bots table table-stripped" *ngIf="isLoaded == true">
-
+    <table class="list-bots table table-stripped" *ngIf="accounts.length">
       <thead class="thead row">
-        <th class="col-lg-3">
+        <th class="col-lg-6">
           Tên tài khoản
         </th>
-        <th class="col-lg-4">
+        <th class="col-lg-6">
           Số dư tài khoản
         </th>
       </thead>
 
       <tbody>
-        <tr class="one-bot row" *ngFor="let bot of bots | keys">
-          <td *ngIf="bot.key % 2 == 0" class="col-lg-3">
-            {{bot.value}}
+        <tr class="one-bot row" *ngFor="let acc of accounts | keys_ar">
+          <td *ngIf="acc.key % 2 == 0" class="col-lg-6">
+            {{accounts[acc.key]}}
           </td>
-          <td *ngIf="bot.key % 2 == 1" class="col-lg-4">
-            {{bot.value}}
+          <td *ngIf="acc.key % 2 == 0" class="col-lg-6">
+            {{accounts[acc.key+1]}}
           </td>
         </tr>
       </tbody>
     </table>
 
   </div>
+
 </div>

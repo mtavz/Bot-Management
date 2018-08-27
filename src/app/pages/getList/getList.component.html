@@ -36,7 +36,12 @@
             {{bots[bot.key+3]}}
           </td>
           <td *ngIf="bot.key % 5 == 0" class="col-lg-1">
-            {{bots[bot.key+4]}}
+            <span *ngIf="bots[bot.key+4] == 1">
+                Đang hoạt động
+            </span>
+            <span *ngIf="bots[bot.key+4] == 0">
+                Ngưng hoạt động
+            </span>
           </td>
         </tr>
       </tbody>
