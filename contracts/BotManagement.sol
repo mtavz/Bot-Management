@@ -121,7 +121,7 @@ contract BotManagement{
         return true;
     }
     
-    function getAccoutn(uint256 index) public view returns (address, int256){
+    function getAccount(uint256 index) public view returns (address, int256){
         return (accounts[accountList[index]].owner, accounts[accountList[index]].balance);
     }
     
