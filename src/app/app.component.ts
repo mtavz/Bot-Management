@@ -28,7 +28,12 @@ export class AppComponent {
     balance: number;
     acc_addr: string;
     permisType: number;
+    
     address_bot: string;
+    bot_address_info: string;
+    lat: string;
+    long: string;
+
     status: string;
 
     isHidden: any;
@@ -110,7 +115,7 @@ export class AppComponent {
 
     addBot = () => {
         this.setStatus('Initiating transaction... (please wait)');
-        this.vehicleServie.addBot(this.account, this.address_bot)
+        this.vehicleServie.addBot(this.account, this.address_bot, this.bot_address_info, this.lat, this.long)
             .subscribe(value => {
                 console.log(value);
                 this.setStatus('Transaction complete!');

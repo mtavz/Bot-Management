@@ -1,38 +1,19 @@
 {
-  "contractName": "Vehicles",
+  "contractName": "DateTime",
   "abi": [
-    {
-      "constant": false,
-      "inputs": [
-        {
-          "name": "",
-          "type": "string"
-        }
-      ],
-      "name": "getStatus",
-      "outputs": [
-        {
-          "name": "",
-          "type": "int256"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
     {
       "constant": true,
       "inputs": [
         {
           "name": "",
-          "type": "string"
+          "type": "uint256"
         }
       ],
-      "name": "getType",
+      "name": "getYear",
       "outputs": [
         {
           "name": "",
-          "type": "string"
+          "type": "uint16"
         }
       ],
       "payable": false,
@@ -44,14 +25,90 @@
       "inputs": [
         {
           "name": "",
-          "type": "string"
+          "type": "uint256"
         }
       ],
-      "name": "getLastOwner",
+      "name": "getMonth",
       "outputs": [
         {
           "name": "",
-          "type": "address"
+          "type": "uint16"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "getDay",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint16"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "getHour",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint16"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "getMinute",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint16"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "getSecond",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint16"
         }
       ],
       "payable": false,
@@ -59,10 +116,10 @@
       "type": "function"
     }
   ],
-  "bytecode": "0x608060405234801561001057600080fd5b506102a5806100206000396000f300608060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806322b05ed21461005c578063985ba97f146100d9578063b19eb556146101bb575b600080fd5b34801561006857600080fd5b506100c3600480360381019080803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509192919290505050610264565b6040518082815260200191505060405180910390f35b3480156100e557600080fd5b50610140600480360381019080803590602001908201803590602001908080601f016020809104026020016040519081016040528093929190818152602001838380828437820191505050505050919291929050505061026b565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610180578082015181840152602081019050610165565b50505050905090810190601f1680156101ad5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b3480156101c757600080fd5b50610222600480360381019080803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509192919290505050610272565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6000919050565b6060919050565b60009190505600a165627a7a723058205cf9f7f8f256620becc78a72e732970c70f594e602ed2428fe77e74890aebe030029",
-  "deployedBytecode": "0x608060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806322b05ed21461005c578063985ba97f146100d9578063b19eb556146101bb575b600080fd5b34801561006857600080fd5b506100c3600480360381019080803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509192919290505050610264565b6040518082815260200191505060405180910390f35b3480156100e557600080fd5b50610140600480360381019080803590602001908201803590602001908080601f016020809104026020016040519081016040528093929190818152602001838380828437820191505050505050919291929050505061026b565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610180578082015181840152602081019050610165565b50505050905090810190601f1680156101ad5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b3480156101c757600080fd5b50610222600480360381019080803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509192919290505050610272565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6000919050565b6060919050565b60009190505600a165627a7a723058205cf9f7f8f256620becc78a72e732970c70f594e602ed2428fe77e74890aebe030029",
-  "sourceMap": "30:215:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;30:215:0;;;;;;;",
-  "deployedSourceMap": "30:215:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;58:48;;8:9:-1;5:2;;;30:1;27;20:12;5:2;58:48:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;116:54;;8:9:-1;5:2;;;30:1;27;20:12;5:2;116:54:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;116:54:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;180:63;;8:9:-1;5:2;;;30:1;27;20:12;5:2;180:63:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;58:48;100:3;58:48;;;:::o;116:54::-;161:6;116:54;;;:::o;180:63::-;233:7;180:63;;;:::o",
+  "bytecode": "0x608060405234801561001057600080fd5b50610289806100206000396000f300608060405260043610610078576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680633e239e1a1461007d57806365c72840146100c65780638aa001fc1461010f57806392d6631314610158578063a324ad24146101a1578063fa93f883146101ea575b600080fd5b34801561008957600080fd5b506100a860048036038101908080359060200190929190505050610233565b604051808261ffff1661ffff16815260200191505060405180910390f35b3480156100d257600080fd5b506100f16004803603810190808035906020019092919050505061023a565b604051808261ffff1661ffff16815260200191505060405180910390f35b34801561011b57600080fd5b5061013a60048036038101908080359060200190929190505050610241565b604051808261ffff1661ffff16815260200191505060405180910390f35b34801561016457600080fd5b5061018360048036038101908080359060200190929190505050610248565b604051808261ffff1661ffff16815260200191505060405180910390f35b3480156101ad57600080fd5b506101cc6004803603810190808035906020019092919050505061024f565b604051808261ffff1661ffff16815260200191505060405180910390f35b3480156101f657600080fd5b5061021560048036038101908080359060200190929190505050610256565b604051808261ffff1661ffff16815260200191505060405180910390f35b6000919050565b6000919050565b6000919050565b6000919050565b6000919050565b60009190505600a165627a7a723058202990643d83360fef5e59dd102e9d26d3d2e8d3e4648f8c1a6411e24b66f3a7040029",
+  "deployedBytecode": "0x608060405260043610610078576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680633e239e1a1461007d57806365c72840146100c65780638aa001fc1461010f57806392d6631314610158578063a324ad24146101a1578063fa93f883146101ea575b600080fd5b34801561008957600080fd5b506100a860048036038101908080359060200190929190505050610233565b604051808261ffff1661ffff16815260200191505060405180910390f35b3480156100d257600080fd5b506100f16004803603810190808035906020019092919050505061023a565b604051808261ffff1661ffff16815260200191505060405180910390f35b34801561011b57600080fd5b5061013a60048036038101908080359060200190929190505050610241565b604051808261ffff1661ffff16815260200191505060405180910390f35b34801561016457600080fd5b5061018360048036038101908080359060200190929190505050610248565b604051808261ffff1661ffff16815260200191505060405180910390f35b3480156101ad57600080fd5b506101cc6004803603810190808035906020019092919050505061024f565b604051808261ffff1661ffff16815260200191505060405180910390f35b3480156101f657600080fd5b5061021560048036038101908080359060200190929190505050610256565b604051808261ffff1661ffff16815260200191505060405180910390f35b6000919050565b6000919050565b6000919050565b6000919050565b6000919050565b60009190505600a165627a7a723058202990643d83360fef5e59dd102e9d26d3d2e8d3e4648f8c1a6411e24b66f3a7040029",
+  "sourceMap": "247:378:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;247:378:0;;;;;;;",
+  "deployedSourceMap": "247:378:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;447:54;;8:9:-1;5:2;;;30:1;27;20:12;5:2;447:54:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;389:53;;8:9:-1;5:2;;;30:1;27;20:12;5:2;389:53:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;567:56;;8:9:-1;5:2;;;30:1;27;20:12;5:2;567:56:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;270:54;;8:9:-1;5:2;;;30:1;27;20:12;5:2;270:54:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;329:55;;8:9:-1;5:2;;;30:1;27;20:12;5:2;329:55:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;506:56;;8:9:-1;5:2;;;30:1;27;20:12;5:2;506:56:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;447:54;491:6;447:54;;;:::o;389:53::-;432:6;389:53;;;:::o;567:56::-;613:6;567:56;;;:::o;270:54::-;314:6;270:54;;;:::o;329:55::-;374:6;329:55;;;:::o;506:56::-;552:6;506:56;;;:::o",
   "source": "    pragma solidity ^0.4.21;\n\ncontract Vehicles{\n    \n    function getStatus(string) public returns(int){}\n    \n    function getType(string) public view returns(string){}\n    \n    function  getLastOwner(string) public  view returns (address){}\n}\n\ncontract DateTime{\n    function getYear(uint256) constant returns (uint16) {}\n    function getMonth(uint256) constant returns (uint16) {}\n    function getDay(uint256) constant returns (uint16) {}\n    function getHour(uint256) constant returns (uint16) {}\n    function getMinute(uint256) constant returns (uint16) {}\n    function getSecond(uint256) constant returns (uint16) {}\n}\n\n\n\ncontract BotManagement{\n    \n    address botAddress;\n    int completeSetup=0;\n    \n    struct Log{\n        string plate_id;\n        address[] botAddress;\n        uint256[] timestamp;\n        uint256 length;\n    }\n    \n    mapping(string => Log) logs;\n    \n    function addLog(string plate_id, address bot_address, uint256 timestamp) public {\n        if (logs[plate_id].length ==0){\n            logs[plate_id].plate_id = plate_id;\n             logs[plate_id].botAddress.push(bot_address) -1;\n             logs[plate_id].timestamp.push(timestamp) -1;\n             logs[plate_id].length++;\n        }\n        else{\n             logs[plate_id].botAddress.push(bot_address) -1;\n             logs[plate_id].timestamp.push(timestamp) -1;\n             logs[plate_id].length++;\n        }\n    }\n    \n    function getLogs(string plate_id, uint256 index) public view returns(string, address, uint256){\n        return (logs[plate_id].plate_id, logs[plate_id].botAddress[index], logs[plate_id].timestamp[index]);\n    }\n    \n    function getLogsLength(string plate_id) public view returns(uint256){\n        return logs[plate_id].length;\n    }\n    \n    struct Prices{\n            string vehicleType;\n            int256 price;\n    }\n    \n    mapping(string => Prices) priceList;\n        \n    function setPrice(string _type, int256 _price) public{\n        priceList[_type].price = _price;\n    }\n        \n    function setBotAddr(address _address) public returns (bool){\n        if (completeSetup ==0){\n            botAddress = _address;\n            // completeSetup =1;    \n            return true;\n        }\n        return false;\n    }\n    \n    function getAccountLenght() public constant returns(uint count) {\n        return accountList.length;\n    }\n    \n    \n    function getBotLenght() public constant returns(uint count) {\n        return botList.length;\n    }\n    \n   \n    \n    Vehicles vehiclesContract;\n    address vehiclesContractAddr;\n    DateTime dateTimeContract;\n    \n    constructor(address _vaddress, address _address) public{\n        vehiclesContractAddr = _vaddress;\n        vehiclesContract = Vehicles(_vaddress);\n        permissionList[_address].owner = _address;\n        permissionList[_address].typePermis = 1;\n        dateTimeContract = DateTime(address(0xe8660491d945560fecb719bdb96479bed17c577c));\n    }\n    \n    function getDate(uint256 timestamp) public view returns(uint256, uint256, uint256, uint256, uint256, uint256){\n        uint256 _year = dateTimeContract.getYear(timestamp);\n        uint256 _month = dateTimeContract.getMonth(timestamp);\n        uint256 _day = dateTimeContract.getDay(timestamp);\n        uint256 _hour = dateTimeContract.getHour(timestamp);\n        uint256 _minute = dateTimeContract.getMinute(timestamp);\n        uint256 _second = dateTimeContract.getSecond(timestamp);\n        return (_year, _month, _day, _hour, _minute, _second);\n    }\n    \n    struct Account{\n        address owner;\n        int256 balance;\n    }\n    \n    address[] public accountList;\n    \n    mapping (address => Account) accounts;\n    \n    struct Bot{\n        address owner;\n        string addressInfo;\n        string Lat;\n        string Long;\n        int status; //0: deactive, 1: active;\n    }\n    \n    address[] public botList;\n    \n    mapping( address => Bot) Bots;\n    \n    function getBotInfo(address _address) public view returns(address, string, string, string, int){\n        return (Bots[_address].owner, Bots[_address].addressInfo, Bots[_address].Lat, Bots[_address].Long, Bots[_address].status);\n    }\n    \n    struct Permission{\n        address owner;\n        int256 typePermis;\n        //0. Bị thu hồi các quyền.\n        //1. Cấp quyền cho các account khác và các quyền còn lại.\n        //2. Chỉ có quyền đăng ký phương tiện, ko có quyền cấp quyền cho account khác.\n    }\n    \n    mapping (address => Permission) permissionList;\n    \n    function checkPermission() public view returns(int256){\n            return permissionList[msg.sender].typePermis;\n    }\n    \n    function addPermission(address _address, int256 _type) public returns(bool){\n    if (checkPermission() == 1) {\n        permissionList[_address].owner = _address;\n        permissionList[_address].typePermis = _type;\n        return true;\n    }\n    return false;\n    }\n    \n    \n    function addBot(address _address, string _addressInfo, string _Lat, string _Long) public returns(bool){\n        if (checkPermission()==1){\n            Bot storage tmp_bot = Bots[_address];\n            tmp_bot.owner=_address;\n            tmp_bot.addressInfo=_addressInfo;\n            tmp_bot.Lat=_Lat;\n            tmp_bot.Long=_Long;\n            tmp_bot.status= 1;\n            botList.push(_address) -1;\n            return true;\n        }\n        return false;\n    }\n    \n    function addAccount(address _address) public returns(bool){\n        if (checkPermission()==1 || msg.sender == vehiclesContractAddr){\n            Account storage tmp_account = accounts[_address];\n            tmp_account.owner = _address;\n            accountList.push(_address) -1;\n            return true;\n        }\n        return false;\n    }\n    \n   \n    \n    function checkAccount(address _address) public view returns(bool){\n        if (accounts[_address].owner!=_address){\n            return false;\n        }\n        return true;\n    }\n    \n    function getAccount(uint256 index) public view returns (address, int256){\n        return (accounts[accountList[index]].owner, accounts[accountList[index]].balance);\n    }\n    \n    function addCoin(address _address) public payable returns (bool){\n        if (checkAccount(_address)){\n            accounts[_address].balance=accounts[_address].balance+ (int256)(msg.value);\n        }\n    }\n    \n\n    function addCoin() public payable returns(bool){\n        if (accounts[msg.sender].owner==msg.sender){\n            accounts[msg.sender].balance=accounts[msg.sender].balance+ (int256)(msg.value);\n            return true;\n        }\n        return false;\n    }\n\n    function getBalance(address _address) public view returns(int256){\n        return accounts[_address].balance;\n    }\n    \n    function getNow() public view returns (uint256){\n        return now;\n    }\n    \n    \n    function verifyVehicle(address _address, string _plate_id) public returns (bool){\n        if (msg.sender==botAddress){\n            if (Bots[_address].status ==1){\n                if (vehiclesContract.getStatus(_plate_id) == 1)\n                {\n                    // address owner = vehiclesContract.getOwnerInfo(_plate_id);\n                    accounts[vehiclesContract.getLastOwner(_plate_id)].balance =accounts[vehiclesContract.getLastOwner(_plate_id)].balance-priceList[vehiclesContract.getType(_plate_id)].price;\n                    addLog(_plate_id, _address, now);\n                    return true;\n                }\n            }\n        }\n       return false;\n    }\n}",
   "sourcePath": "/Users/ps/Desktop/Hackathon/Train/Bot-Management/contracts/BotManagement.sol",
   "ast": {
@@ -21011,5 +21068,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-08-27T11:23:09.485Z"
+  "updatedAt": "2018-08-27T11:23:09.504Z"
 }

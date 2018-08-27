@@ -36,25 +36,21 @@ export class BotManagementService {
 
 
 
-    addBot(from, bot_address): Observable<any> {
+    addBot(from, bot_address, bot_address_info, lat, long): Observable<any> {
         let meta;
         return Observable.create(observer => {
-            this.BotMgmt
-                .deployed()
-                .then(instance => {
-                    meta = instance;
-                    return meta.addBot(bot_address, {
-                        from: from,
-                    });
-                })
-                .then(() => {
-                    observer.next()
-                    observer.next()
-                })
-                .catch(e => {
-                    console.log(e);
-                    observer.error(e)
+            this.BotMgmt.deployed().then(instance => {
+                meta = instance;
+                return meta.addBot(bot_address, bot_address_info, lat, long, {
+                    from: from,
                 });
+            }).then(() => {
+                observer.next()
+                observer.next()
+            }).catch(e => {
+                console.log(e);
+                observer.error(e)
+            });
         })
     }
 
@@ -219,20 +215,21 @@ export class BotManagementService {
         // })
     }
 
-    getAccountList(from): Array<any> {
+    getAccountList(from): Observable<Array<any>> {
         let meta;
         var size;
         var numbers = new Array;
-        this.BotMgmt
-            .deployed()
-            .then(instance => {
+
+        return Observable.create(observer => {
+
+            this.BotMgmt.deployed().then(instance => {
                 meta = instance;
 
                 let botLenght = meta.getAccountLenght({
                     from: from,
                 });
 
-                botLenght.then(data => {
+                return botLenght.then(data => {
                     size = data.toNumber();
                 }).then(() => {
                     for (var _i = 0; _i < size; _i++) {
@@ -244,9 +241,21 @@ export class BotManagementService {
                             numbers.push(data[1].toNumber());
                         })
                     }
+
+                    observer.next(numbers)
+                    observer.complete()
+
+                    //return numbers
+                }).catch(e => {
+                    console.log(e);
+                    observer.error(e)
                 });
-            })
-        return numbers;
-        // })
+
+            }).catch(e => {
+                console.log(e);
+                //observer.error(e)
+            });
+        })
     }
 }
+
