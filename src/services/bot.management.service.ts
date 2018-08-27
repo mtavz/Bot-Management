@@ -27,14 +27,14 @@ export class BotManagementService {
 
 
 
-  addBot(from, bot_address): Observable < any > {
+  addBot(from, bot_address, bot_address_info, lat, long): Observable < any > {
     let meta;
     return Observable.create(observer => {
       this.BotMgmt
         .deployed()
         .then(instance => {
           meta = instance;
-          return meta.addBot(bot_address, {
+          return meta.addBot(bot_address, bot_address_info, lat, long, {
             from: from,
           });
         })
@@ -93,6 +93,28 @@ export class BotManagementService {
     })
   }
 
+  // getBotList2(from): Observable < Array <any> > {
+  //   let meta;
+  //   return Observable.create(observer => {
+  //     this.BotMgmt
+  //       .deployed()
+  //       .then(instance => {
+  //         meta = instance;
+  //         return meta.getBalance(acc_addr, {
+  //           from: from,
+  //         });
+  //       })
+  //       .then((value) => {
+  //         observer.next(value)
+  //         observer.complete()
+  //       })
+  //       .catch(e => {
+  //         console.log(e);
+  //         observer.error(e)
+  //       });
+  //   })
+  // }
+
   getBotList(from): Array < string > {
     let meta;
     var size;
@@ -100,24 +122,25 @@ export class BotManagementService {
     this.BotMgmt
     .deployed()
     .then(instance => {
+
       meta = instance;
 
-      let botLenght= meta.getBotLenght({
+      let botLenght = meta.getBotLenght({
         from: from,
       });
 
-      botLenght.then(data=>{
+      botLenght.then(data => {
         size = data.toNumber();
-      }).then(()=>{
+      }).then(() => {
         for (var _i = 0; _i < size; _i++) {
           let value = meta.botList(_i, {
             from: from,
           });
-          value.then(data=>{
-            numbers.push(data); 
+          value.then(data => {
+            numbers.push(data);
           })
         }
-      });
+      })
     })
     return numbers;
     // })
@@ -132,20 +155,20 @@ export class BotManagementService {
     .then(instance => {
       meta = instance;
 
-      let botLenght= meta.getAccountLenght({
+      let botLenght = meta.getAccountLenght({
         from: from,
       });
 
-      botLenght.then(data=>{
+      botLenght.then(data => {
         size = data.toNumber();
-      }).then(()=>{
+      }).then(() => {
         for (var _i = 0; _i < size; _i++) {
-          let value = meta.getAccoutn(_i, {
+          let value = meta.getAccount(_i, {
             from: from,
           });
-          value.then(data=>{
-            numbers.push(data[0]); 
-            numbers.push(data[1].toNumber()); 
+          value.then(data => {
+            numbers.push(data[0]);
+            numbers.push(data[1].toNumber());
           })
         }
       });
