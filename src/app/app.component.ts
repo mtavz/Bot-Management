@@ -75,6 +75,15 @@ export class AppComponent {
       })
   };
 
+  getBotList2 = () => {
+    this.vehicleServie.getBotList2(this.account)
+      .subscribe(value => {
+        console.log(value);
+      }, e => {
+        this.setStatus('Error getting balance; see log.')
+      })
+  };
+
   setStatus = message => {
     this.status = message;
   };
@@ -99,7 +108,7 @@ export class AppComponent {
 
   addBot = () => {
     this.setStatus('Initiating transaction... (please wait)');
-    this.vehicleServie.addBot(this.account, this.address_bot)
+    this.vehicleServie.addBot(this.account, this.address_bot, " "," " ,"")
       .subscribe(value => {
         console.log(value);        
         this.setStatus('Transaction complete!');

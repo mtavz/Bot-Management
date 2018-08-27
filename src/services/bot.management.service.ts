@@ -93,27 +93,31 @@ export class BotManagementService {
     })
   }
 
-  // getBotList2(from): Observable < Array <any> > {
-  //   let meta;
-  //   return Observable.create(observer => {
-  //     this.BotMgmt
-  //       .deployed()
-  //       .then(instance => {
-  //         meta = instance;
-  //         return meta.getBalance(acc_addr, {
-  //           from: from,
-  //         });
-  //       })
-  //       .then((value) => {
-  //         observer.next(value)
-  //         observer.complete()
-  //       })
-  //       .catch(e => {
-  //         console.log(e);
-  //         observer.error(e)
-  //       });
-  //   })
-  // }
+  getBotList2(from): Observable < any > {
+    let meta;
+    let x = new Array;
+    return Observable.create(observer => {
+      this.BotMgmt
+        .deployed()
+        .then(instance => {
+          meta = instance;
+          for (var _i = 0; _i < 4; _i++) {
+            x[_i] = meta.getAccount(_i, {
+            from: from,
+          });
+        }
+        return x;
+        })
+        .then((value) => {
+          observer.next(value)
+          observer.complete()
+        })
+        .catch(e => {
+          console.log(e);
+          observer.error(e)
+        });
+    })
+  }
 
   getBotList(from): Array < string > {
     let meta;
@@ -174,6 +178,5 @@ export class BotManagementService {
       });
     })
     return numbers;
-    // })
   }
 }
