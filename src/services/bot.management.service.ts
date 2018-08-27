@@ -1,15 +1,24 @@
 import {
-  Injectable
+    Injectable
 } from '@angular/core';
 import {
-  Observable
+    Observable
 } from 'rxjs/Observable';
 import {
-  fromPromise
+    fromPromise
 } from 'rxjs/observable/fromPromise';
 import {
-  Web3Service
+    Web3Service
 } from './web3.service'
+
+
+/*import { Resolve } from '@angular/router';
+
+import {
+    Router, Resolve,
+    ActivatedRouteSnapshot
+} from '@angular/router';
+*/
 
 const botArtifacts = require('../../build/contracts/BotManagement.json');
 const contract = require('truffle-contract');
@@ -17,140 +26,227 @@ const contract = require('truffle-contract');
 @Injectable()
 export class BotManagementService {
 
-  BotMgmt = contract(botArtifacts);
+    BotMgmt = contract(botArtifacts);
 
-  constructor(
-    private web3Ser: Web3Service,
-  ) {
-    this.BotMgmt.setProvider(web3Ser.web3.currentProvider);
-  }
+    constructor(
+        private web3Ser: Web3Service,
+    ) {
+        this.BotMgmt.setProvider(web3Ser.web3.currentProvider);
+    }
 
 
 
-  addBot(from, bot_address): Observable < any > {
-    let meta;
-    return Observable.create(observer => {
-      this.BotMgmt
-        .deployed()
-        .then(instance => {
-          meta = instance;
-          return meta.addBot(bot_address, {
-            from: from,
-          });
+    addBot(from, bot_address): Observable<any> {
+        let meta;
+        return Observable.create(observer => {
+            this.BotMgmt
+                .deployed()
+                .then(instance => {
+                    meta = instance;
+                    return meta.addBot(bot_address, {
+                        from: from,
+                    });
+                })
+                .then(() => {
+                    observer.next()
+                    observer.next()
+                })
+                .catch(e => {
+                    console.log(e);
+                    observer.error(e)
+                });
         })
-        .then(() => {
-          observer.next()
-          observer.next()
+    }
+
+    addPermission(from, address, permisType): Observable<any> {
+        let meta;
+        return Observable.create(observer => {
+            this.BotMgmt
+                .deployed()
+                .then(instance => {
+                    meta = instance;
+                    return meta.addPermission(address, permisType, {
+                        from: from,
+                    });
+                })
+                .then(() => {
+                    observer.next()
+                    observer.next()
+                })
+                .catch(e => {
+                    console.log(e);
+                    observer.error(e)
+                });
         })
-        .catch(e => {
-          console.log(e);
-          observer.error(e)
+    }
+
+    getBalance(from, acc_addr): Observable<number> {
+        let meta;
+        return Observable.create(observer => {
+            this.BotMgmt
+                .deployed()
+                .then(instance => {
+                    meta = instance;
+                    return meta.getBalance(acc_addr, {
+                        from: from,
+                    });
+                })
+                .then((value) => {
+                    observer.next(value)
+                    observer.complete()
+                })
+                .catch(e => {
+                    console.log(e);
+                    observer.error(e)
+                });
+        })
+    }
+
+
+    /*resolve(route: ActivatedRouteSnapshot): Promise | boolean {
+        let id = +route.params['id'];
+        return this.heroService.getHero(id).then(hero => {
+            if (hero) {
+                return hero;
+            } else { // id not found
+                this.router.navigate(['/dashboard']);
+                return false;
+            }
         });
-    })
-  }
+    }*/
 
-  addPermission(from, address, permisType): Observable < any > {
-    let meta;
-    return Observable.create(observer => {
-      this.BotMgmt
-        .deployed()
-        .then(instance => {
-          meta = instance;
-          return meta.addPermission(address, permisType, {
-            from: from,
-          });
+
+    getBotList(from) {
+        let meta;
+        var size;
+        var numbers = new Array;
+        return this.BotMgmt.deployed().then(instance => {
+            meta = instance;
+
+            let botLenght = meta.getBotLenght({
+                from: from,
+            });
+
+            return botLenght.then(data => {
+                size = data.toNumber();
+            }).then((res) => {
+                console.log(meta.botList);
+                for (var _i = 0; _i < size; _i++) {
+                    let value = meta.botList(_i, {
+                        from: from,
+                    });
+                    value.then(data => {
+                        numbers.push(data);
+                    });
+                }
+                return numbers
+            });
         })
-        .then(() => {
-          observer.next()
-          observer.next()
+        // })
+    }
+
+    getBotListOb(from): Observable<Array<string>> {
+        let meta;
+        let size;
+        let numbers = new Array;
+
+        return Observable.create(observer => {
+            this.BotMgmt.deployed().then(instance => {
+                meta = instance;
+
+                let botLenght = meta.getBotLenght({
+                    from: from,
+                });
+
+                return botLenght.then(data => {
+                    size = data.toNumber();
+                }).then(() => {
+                    //console.log(meta.botList);
+                    for (var _i = 0; _i < size; _i++) {
+                        let value = meta.botList(_i, {
+                            from: from,
+                        });
+                        value.then(data => {
+                            numbers.push(data);
+                        });
+                    }
+
+                    observer.next(numbers)
+                    observer.complete()
+
+                    //return numbers
+                }).catch(e => {
+                    console.log(e);
+                    observer.error(e)
+                });
+
+            }).then((value) => {
+                //observer.next(value)
+                //observer.complete()
+            }).catch(e => {
+                console.log(e);
+                //observer.error(e)
+            });
         })
-        .catch(e => {
-          console.log(e);
-          observer.error(e)
-        });
-    })
-  }
+    }
 
-  getBalance(from, acc_addr): Observable < number > {
-    let meta;
-    return Observable.create(observer => {
-      this.BotMgmt
-        .deployed()
-        .then(instance => {
-          meta = instance;
-          return meta.getBalance(acc_addr, {
-            from: from,
-          });
+
+    getBotList_(from): Array<string> {
+        let meta;
+        var size;
+        var numbers = new Array;
+        this.BotMgmt.deployed().then(instance => {
+            meta = instance;
+
+            let botLenght = meta.getBotLenght({
+                from: from,
+            });
+
+            botLenght.then(data => {
+                size = data.toNumber();
+            }).then(() => {
+                for (var _i = 0; _i < size; _i++) {
+                    let value = meta.botList(_i, {
+                        from: from,
+                    });
+                    value.then(data => {
+                        numbers.push(data);
+                    })
+                }
+            });
         })
-        .then((value) => {
-          observer.next(value)
-          observer.complete()
-        })
-        .catch(e => {
-          console.log(e);
-          observer.error(e)
-        });
-    })
-  }
+        return numbers;
+        // })
+    }
 
-  getBotList(from): Array < string > {
-    let meta;
-    var size;
-    var numbers = new Array;
-    this.BotMgmt
-    .deployed()
-    .then(instance => {
-      meta = instance;
+    getAccountList(from): Array<any> {
+        let meta;
+        var size;
+        var numbers = new Array;
+        this.BotMgmt
+            .deployed()
+            .then(instance => {
+                meta = instance;
 
-      let botLenght= meta.getBotLenght({
-        from: from,
-      });
+                let botLenght = meta.getAccountLenght({
+                    from: from,
+                });
 
-      botLenght.then(data=>{
-        size = data.toNumber();
-      }).then(()=>{
-        for (var _i = 0; _i < size; _i++) {
-          let value = meta.botList(_i, {
-            from: from,
-          });
-          value.then(data=>{
-            numbers.push(data); 
-          })
-        }
-      });
-    })
-    return numbers;
-    // })
-  }
-
-  getAccountList(from): Array < any > {
-    let meta;
-    var size;
-    var numbers = new Array;
-    this.BotMgmt
-    .deployed()
-    .then(instance => {
-      meta = instance;
-
-      let botLenght= meta.getAccountLenght({
-        from: from,
-      });
-
-      botLenght.then(data=>{
-        size = data.toNumber();
-      }).then(()=>{
-        for (var _i = 0; _i < size; _i++) {
-          let value = meta.getAccoutn(_i, {
-            from: from,
-          });
-          value.then(data=>{
-            numbers.push(data[0]); 
-            numbers.push(data[1].toNumber()); 
-          })
-        }
-      });
-    })
-    return numbers;
-    // })
-  }
+                botLenght.then(data => {
+                    size = data.toNumber();
+                }).then(() => {
+                    for (var _i = 0; _i < size; _i++) {
+                        let value = meta.getAccoutn(_i, {
+                            from: from,
+                        });
+                        value.then(data => {
+                            numbers.push(data[0]);
+                            numbers.push(data[1].toNumber());
+                        })
+                    }
+                });
+            })
+        return numbers;
+        // })
+    }
 }

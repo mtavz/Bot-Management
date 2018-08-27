@@ -1,0 +1,22 @@
+<div class="wrapper wrapper-content">
+    <div class="row">
+        <h1 class="title">Thêm quyền</h1>
+        <div class="field">
+          <label class="label">Account address</label>
+          <p class="control">
+            <input [(ngModel)]="acc_addr" class="input" type="text" placeholder="Nhập địa chỉ cần thêm quyền">
+          </p>
+        </div>
+        <div class="field">
+          <label class="label">Quyền</label>
+          <p class="control">
+            <input [(ngModel)]="permisType" class="input" type="text" placeholder="Nhập quyền">
+          </p>
+        </div>
+    
+        <button (click)="addPermission()" class="button is-primary ">
+          Set Permisstion
+        </button>
+        
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="wrapper wrapper-content">
+  <div class="row">
+
+    <div class="container">
+      <h1 class="title">Kiểm tra số dư tài khoản</h1>
+
+      <form #coinForm="ngForm">
+        <div class="field">
+          <label class="label">Account</label>
+          <p class="control">
+            <input [(ngModel)]="acc_addr" class="input" type="text" placeholder="0x93e66d9baea28c17d9fc393b53e3fbdd76899dae" name="acc_addr">
+          </p>
+        </div>
+
+        <div class="field is-grouped">
+          <p class="control">
+            <button (click)="getBalance()" class="button is-primary">
+              Get Balance
+            </button>
+          </p>
+        </div>
+      </form>
+      <br>
+      <hr>
+    </div>
+
+  </div>
+</div>

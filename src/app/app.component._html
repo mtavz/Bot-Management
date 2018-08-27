@@ -1,0 +1,159 @@
+<section class="hero is-small is-info is-bold nav-head">
+  <div class="container">
+    <h1 class="title is-1 left">
+      BOT Management
+    </h1>
+
+    <h2 class="title">
+      Your address
+      <span class="is-medium has-underline">{{account}}</span>
+    </h2>
+  </div>
+</section>
+
+<section class="nav-left">
+  <div class="nav-left-head">
+
+  </div>
+  <ul class="nav-left-body">
+    <li>
+      <a (click)="nav('list')">
+        Get List Bot
+      </a>
+    </li>
+
+    <li>
+      <a (click)="nav('account')">
+        Get Account Bot
+      </a>
+    </li>
+
+    <li>
+      <a (click)="nav('add_permission')">
+        Thêm quyền
+      </a>
+    </li>
+
+    <li>
+      <a (click)="nav('add_bot')">
+        Thêm trạm bot
+      </a>
+    </li>
+
+    <li>
+      <a (click)="nav('check_account')">
+        Kiểm tra thông tin tài khoản
+      </a>
+    </li>
+  </ul>
+</section>
+
+
+<section class="main">
+
+
+  <div class="container" [hidden]="isHidden['list']" id="content-list">
+    <h1 class="title">Danh sách trạm BOT</h1>
+
+    <button (click)="getBotList()" class="button is-primary">
+      Get List Bot
+    </button>
+  </div>
+
+
+  <div class="container" [hidden]="isHidden['account']" id="content-account">
+    <h1 class="title">Danh sách tài khoản</h1>
+
+    <button (click)="getAccountList()" class="button is-primary">
+      Get Account List
+    </button>
+  </div>
+
+
+  <div class="container" [hidden]="isHidden['add_permission']" id="content-add_permission">
+    <h1 class="title">Thêm quyền</h1>
+    <div class="field">
+      <label class="label">Account address</label>
+      <p class="control">
+        <input [(ngModel)]="acc_addr" class="input" type="text" placeholder="Nhập địa chỉ cần thêm quyền">
+      </p>
+    </div>
+    <div class="field">
+      <label class="label">Quyền</label>
+      <p class="control">
+        <input [(ngModel)]="permisType" class="input" type="text" placeholder="Nhập quyền">
+      </p>
+    </div>
+
+    <button (click)="addPermission()" class="button is-primary ">
+      Set Permisstion
+    </button>
+  </div>
+
+
+  <div class="container" [hidden]="isHidden['add_bot']" id="content-add_bot">
+    <h1 class="title">Thêm trạm BOT</h1>
+
+    <form #coinForm="ngForm">
+      <div class="field">
+        <label class="label">Address của trạm BOT</label>
+        <p class="control">
+          <input [(ngModel)]="address_bot" class="input" type="text" placeholder="0x93e66d9baea28c17d9fc393b53e3fbdd76899dae" name="address_bot">
+        </p>
+      </div>
+      <div class="field is-grouped">
+        <p class="control">
+          <button (click)="addBot()" class="button is-primary">
+            Add BOT
+          </button>
+        </p>
+      </div>
+    </form>
+  </div>
+
+
+  <div class="container" [hidden]="isHidden['check_account']" id="content-check_account">
+    <h1 class="title">Kiểm tra thông tin tài khoản</h1>
+
+    <form #coinForm="ngForm">
+      <div class="field">
+        <label class="label">Account</label>
+        <p class="control">
+          <input [(ngModel)]="acc_addr" class="input" type="text" placeholder="0x93e66d9baea28c17d9fc393b53e3fbdd76899dae" name="acc_addr">
+        </p>
+      </div>
+
+      <div class="field is-grouped">
+        <p class="control">
+          <button (click)="checkAccount()" class="button is-primary">
+            Kiểm tra
+          </button>
+        </p>
+      </div>
+    </form>
+
+    <div class="container">
+      <h1 class="title">Kiểm tra số dư tài khoản</h1>
+
+      <form #coinForm="ngForm">
+        <div class="field">
+          <label class="label">Account</label>
+          <p class="control">
+            <input [(ngModel)]="acc_addr" class="input" type="text" placeholder="0x93e66d9baea28c17d9fc393b53e3fbdd76899dae" name="acc_addr">
+          </p>
+        </div>
+
+        <div class="field is-grouped">
+          <p class="control">
+            <button (click)="getBalance()" class="button is-primary">
+              Get Balance
+            </button>
+          </p>
+        </div>
+      </form>
+      <br>
+      <hr>
+    </div>
+  </div>
+
+</section>

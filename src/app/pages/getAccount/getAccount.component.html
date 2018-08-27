@@ -1,0 +1,29 @@
+<div class="wrapper wrapper-content">
+  <div class="row">
+    <h1 class="title">Danh sách tài khoản</h1>
+
+    <table class="list-bots table table-stripped" *ngIf="isLoaded == true">
+
+      <thead class="thead row">
+        <th class="col-lg-3">
+          Tên tài khoản
+        </th>
+        <th class="col-lg-4">
+          Số dư tài khoản
+        </th>
+      </thead>
+
+      <tbody>
+        <tr class="one-bot row" *ngFor="let bot of bots | keys">
+          <td *ngIf="bot.key % 2 == 0" class="col-lg-3">
+            {{bot.value}}
+          </td>
+          <td *ngIf="bot.key % 2 == 1" class="col-lg-4">
+            {{bot.value}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

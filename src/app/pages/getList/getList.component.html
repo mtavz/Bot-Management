@@ -1,0 +1,47 @@
+<div class="wrapper wrapper-content">
+  <div class="row">
+    <h1 class="title">Danh sách trạm BOT</h1>
+
+    <table class="list-bots table table-stripped" *ngIf="bots.length">
+      <thead class="thead row">
+        <th class="col-lg-3">
+          Tài khoản
+        </th>
+        <th class="col-lg-4">
+          Địa chỉ
+        </th>
+        <th class="col-lg-2">
+          Kinh độ
+        </th>
+        <th class="col-lg-2">
+          Vĩ độ
+        </th>
+        <th class="col-lg-1">
+          Tình trạng
+        </th>
+      </thead>
+
+      <tbody>
+        <tr class="one-bot row" *ngFor="let bot of bots | keys_ar">
+          <td *ngIf="bot.key % 5 == 0" class="col-lg-3">
+            {{bots[bot.key]}}
+          </td>
+          <td *ngIf="bot.key % 5 == 0" class="col-lg-4">
+            {{bots[bot.key+1]}}
+          </td>
+          <td *ngIf="bot.key % 5 == 0" class="col-lg-2">
+            {{bots[bot.key+2]}}
+          </td>
+          <td *ngIf="bot.key % 5 == 0" class="col-lg-2">
+            {{bots[bot.key+3]}}
+          </td>
+          <td *ngIf="bot.key % 5 == 0" class="col-lg-1">
+            {{bots[bot.key+4]}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+</div>

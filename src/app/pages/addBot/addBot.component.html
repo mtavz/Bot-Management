@@ -1,0 +1,22 @@
+<div class="wrapper wrapper-content">
+    <div class="row">
+        <h1 class="title">Thêm trạm BOT</h1>
+
+        <form #coinForm="ngForm">
+          <div class="field">
+            <label class="label">Address của trạm BOT</label>
+            <p class="control">
+              <input [(ngModel)]="address_bot" class="input" type="text" placeholder="0x93e66d9baea28c17d9fc393b53e3fbdd76899dae" name="address_bot">
+            </p>
+          </div>
+          <div class="field is-grouped">
+            <p class="control">
+              <button (click)="addBot()" class="button is-primary">
+                Add BOT
+              </button>
+            </p>
+          </div>
+        </form>
+        
+    </div>
+</div>
